@@ -80,6 +80,24 @@ class User:
     user_id: int
     email: Optional[str] = None  # Значение по умолчанию
 
+@dataclass
+class Team:
+    name: str
+    # default_factory: используется для изменяемых типов (list, dict, set)
+    members: list[str] = field(default_factory=list)
+    
+    # repr=False: поле не будет отображаться при print(obj)
+    # compare=False: поле не будет учитываться при сравнении объектов (==)
+    internal_id: int = field(default=0, repr=False, compare=False)
+    
+    # init=False: поле не передается в конструктор __init__
+    score: int = field(init=False, default=100)
+
+# Пример
+t = Team(name="Developers", members=["Alice", "Bob"], internal_id=999)
+print(t)  # Team(name='Developers', members=['Alice', 'Bob']) 
+          # (internal_id скрыт благодаря repr=False)
+
 # Обычный класс с "магией" и свойствами
 class BankAccount:
     def __init__(self, owner: str, balance: float):
