@@ -111,4 +111,9 @@ class BankAccount:
 
 # Главные встроенные функции (Вспомнить всё)
 
-- ```map(func, iterable)``` - применить функцию к каждому элементу.
+- ```map(func, iterable)``` - применить функцию к каждому элементу
+- ```filter(func, itertabgle``` - остав
+- ```filter(func, iterable)``` - оставить только те, где True
+- ```any([True, False])``` - True, если хотя бы один True
+- ```all([True,True])``` - True, если все True
+- ```sorted(iterable, key=lambda x: x[1])``` - сортировка по ключу
