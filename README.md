@@ -161,6 +161,29 @@ print(user1.__repr__)
   
 ```
 
+## Pygame 
+
+```
+import pygame
+
+pygame.init()
+screen = pygame.display.set_mode((800, 600))
+clock = pygame.time.Clock()
+
+running = True
+while running:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running == False
+    
+    screen.fill((255,255,255))
+    pygame.draw.rect(screen,(0,255,0), (50,50,300,500))
+    pygame.display.flip()
+    clock.tick(60)
+
+pygame.quit()
+```
+
 # Главные встроенные функции (Вспомнить всё)
 
 - ```map(func, iterable)``` - применить функцию к каждому элементу
@@ -169,6 +192,7 @@ print(user1.__repr__)
 - ```any([True, False])``` - True, если хотя бы один True
 - ```all([True,True])``` - True, если все True
 - ```sorted(iterable, key=lambda x: x[1])``` - сортировка по ключу
+
 
 ---
 
