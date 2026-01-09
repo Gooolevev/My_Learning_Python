@@ -49,8 +49,6 @@ import json
 ```
 
 ```
-import json
-
 data = {"id": 1, "name": "Admin", "skills": ["Python", "SQL"]}
 
 # Запись в JSON
