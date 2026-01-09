@@ -68,15 +68,14 @@ with open("notes.txt") as f:
 
 ```
 from dataclasses import dataclass, field
-from typing import Optional
 ```
-
+#### Пример
 ```
 @dataclass
 class User:
     username: str
     user_id: int
-    email: Optional[str] = None  # Значение по умолчанию
+    email: str = None
 ```
 
 ```
@@ -91,6 +90,31 @@ class Employee:
 
 emp = Employee("Ivan", 25, "Dev", password="12345", user_id=1, skills=["Good man", "important"])
 print(emp)
+```
+
+```
+from dataclasses import dataclass, field, asdict
+import json
+@dataclass(order=True)
+class Employee:
+    name: str
+    age: int
+    job: str
+    password: str = field(default="12345", repr=False)
+    user_id: int = field(default=0, compare=False)
+    skills: list = field(default_factory=list)
+
+emp = Employee("Ivan", 25, "Dev", password="12345", user_id=1, skills=["Good man", "important"])
+print(emp)
+
+with open("config.json", "w",) as f:
+    json.dump(asdict(emp), f, indent=4)
+
+with open("config.json", "r") as f:
+    loaded_data = json.load(f)
+
+new_emp = Employee(**loaded_data)
+print(new_emp)
 ```
 
 ```
