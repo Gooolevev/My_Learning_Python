@@ -97,31 +97,46 @@ print(t)  # Team(name='Developers', members=['Alice', 'Bob'])
           # (internal_id скрыт благодаря repr=False)
 
 # Обычный класс с "магией" и свойствами
-class BankAccount:
-    def __init__(self, owner: str, balance: float):
-        self.owner = owner
-        self._balance = balance  # Инкапсуляция (protected)
+class Main:
+    def __init__(self, name: str, age: int, job: str):
+        self.name = name
+        self.age = age
+        self.job = job
 
-    # Вычисляемое свойство (getter)
     @property
-    def balance(self):
-        return f"${self._balance:.2f}"
+    def age(self):
+        return self._age
+    
+    @age.setter
+    def age(self, value):
+        if value < 0: raise ValueError("Не может быть у человека отрицательный возраст!!!")
+        self._age = value
 
-    # Сеттер с логикой
-    @balance.setter
-    def balance(self, value):
-        if value < 0: raise ValueError("Нельзя в минус!")
-        self._balance = value
 
-    # Магические методы
-    def __str__(self): # Для print()
-        return f"Account of {self.owner}"
+    def __repr__(self):
+        return f"Main (name = '{self.name}', age= '{self.age}', job = '{self.job}')"
 
-    def __repr__(self): # Для отладки
-        return f"BankAccount(owner='{self.owner}', balance={self._balance})"
+    def __eq__(self, other):
+        if not isinstance(other, Main):
+            return NotImplemented
+        return self.age == other.age
+    
+    def __lt__(self, other):
+        if not isinstance(other, Main):
+            return NotImplemented
+        return self.age < other.age
+    
+    def __str__(self):
+        return f"Сотрудник {self.name}, возраст: {self.age}"
 
-    def __len__(self): # Для len(obj)
-        return int(self._balance)
+    
+user1 = Main("Ivan", 25, "Dev")
+user2 = Main("Alex", 30, "CEO")
+
+print(user1 < user2) # True
+print(user1 == user2) # False
+print(user1 > user2) # False
+print(user1.__repr__)
   
 ```
 
