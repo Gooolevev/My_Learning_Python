@@ -77,9 +77,9 @@ class User:
     username: str
     user_id: int
     email: Optional[str] = None  # Значение по умолчанию
+```
 
-from dataclasses import dataclass, field
-import json
+```
 @dataclass(order=True)
 class Employee:
     name: str
@@ -91,8 +91,9 @@ class Employee:
 
 emp = Employee("Ivan", 25, "Dev", password="12345", user_id=1, skills=["Good man", "important"])
 print(emp)
+```
 
-# Обычный класс с "магией" и свойствами
+```
 class Main:
     def __init__(self, name: str, age: int, job: str):
         self.name = name
