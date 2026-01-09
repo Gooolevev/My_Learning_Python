@@ -169,3 +169,5 @@ print(user1.__repr__)
 - ```any([True, False])``` - True, если хотя бы один True
 - ```all([True,True])``` - True, если все True
 - ```sorted(iterable, key=lambda x: x[1])``` - сортировка по ключу
+
+> P.S. Будет все обновляться. я это просто делаю что бы самому весь этот бред запомнить
