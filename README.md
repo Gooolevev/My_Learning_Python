@@ -78,23 +78,19 @@ class User:
     user_id: int
     email: Optional[str] = None  # Значение по умолчанию
 
-@dataclass
-class Team:
+from dataclasses import dataclass, field
+import json
+@dataclass(order=True)
+class Employee:
     name: str
-    # default_factory: используется для изменяемых типов (list, dict, set)
-    members: list[str] = field(default_factory=list)
-    
-    # repr=False: поле не будет отображаться при print(obj)
-    # compare=False: поле не будет учитываться при сравнении объектов (==)
-    internal_id: int = field(default=0, repr=False, compare=False)
-    
-    # init=False: поле не передается в конструктор __init__
-    score: int = field(init=False, default=100)
+    age: int
+    job: str
+    password: str = field(default="12345", repr=False)
+    user_id: int = field(default=0, compare=False)
+    skills: list = field(default_factory=list)
 
-# Пример
-t = Team(name="Developers", members=["Alice", "Bob"], internal_id=999)
-print(t)  # Team(name='Developers', members=['Alice', 'Bob']) 
-          # (internal_id скрыт благодаря repr=False)
+emp = Employee("Ivan", 25, "Dev", password="12345", user_id=1, skills=["Good man", "important"])
+print(emp)
 
 # Обычный класс с "магией" и свойствами
 class Main:
