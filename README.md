@@ -26,7 +26,7 @@ if (n := len(items)) > 10:
 
 ```
 # List/Dict/Set Comprehensions
-nums = [i for i in range(10) if i % 2 == 0]       # Список четных
+nums = [res for i in range(10) if (res := i) % 2 == 0]       # Список четных
 unique_chars = {char for char in "apple"}          # Множество {'a', 'p', 'l', 'e'}
 square_dict = {x: x**2 for x in range(5)}         # {0: 0, 1: 1, 2: 4...}
 
