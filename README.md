@@ -77,7 +77,7 @@ class User:
     user_id: int
     email: str = None
 ```
-
+#### Пример с field
 ```
 @dataclass(order=True)
 class Employee:
@@ -91,7 +91,7 @@ class Employee:
 emp = Employee("Ivan", 25, "Dev", password="12345", user_id=1, skills=["Good man", "important"])
 print(emp)
 ```
-
+#### Пример с field + json
 ```
 from dataclasses import dataclass, field, asdict
 import json
@@ -116,7 +116,7 @@ with open("config.json", "r") as f:
 new_emp = Employee(**loaded_data)
 print(new_emp)
 ```
-
+#### База
 ```
 class Main:
     def __init__(self, name: str, age: int, job: str):
