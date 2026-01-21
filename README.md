@@ -6,9 +6,11 @@ I have learning Python just 1.5 month, but I was understand that lose more time 
 
 ```
 # Распаковка (Unpacking)
+"""тут суть в том, что просто дополнительно присвоить третьей переменной оставшиеся значения, типо * - значит, собери все оставшиеся в этот список"""
 a, b, *rest = [1, 2, 3, 4, 5]  # a=1, b=2, rest=[3, 4, 5]
 
 # F-строки (Python 3.6+)
+"""просто красивенько"""
 name = "Gemini"
 print(f"Hello, {name.upper():>10}") # Выравнивание и методы внутри
 num = 123.456
@@ -18,6 +20,7 @@ print(f"{num:.2f}")                # Округление до 2 знаков: 1
 a, b = b, a
 
 # Оператор морж
+"""крутая штука, которое может помочь перестать дублировать переменные"""
 while (line := input("Enter text: ")) != "stop":
     print(f"You wrote: {line  }")
 
@@ -82,8 +85,14 @@ class User:
     user_id: int
     email: str = None
 ```
-#### Пример с field
+#### Слишком крутой пример
 ```
+Валидация через __post_init__
+
+
+```
+#### Пример с field
+```python
 @dataclass(order=True)
 class Employee:
     name: str
