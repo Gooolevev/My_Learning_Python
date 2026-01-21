@@ -4,7 +4,7 @@ I have learning Python just 1.5 month, but I was understand that lose more time 
 
 ## Основы и полезные фишки
 
-# Главные встроенные функции (Вспомнить всё)
+#### Главные встроенные функции (Вспомнить всё)
 
 - ```map(func, iterable)``` - применить функцию к каждому элементу
 - ```filter(func, itertabgle``` - остав
