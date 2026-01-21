@@ -4,6 +4,15 @@ I have learning Python just 1.5 month, but I was understand that lose more time 
 
 ## Основы и полезные фишки
 
+# Главные встроенные функции (Вспомнить всё)
+
+- ```map(func, iterable)``` - применить функцию к каждому элементу
+- ```filter(func, itertabgle``` - остав
+- ```filter(func, iterable)``` - оставить только те, где True
+- ```any([True, False])``` - True, если хотя бы один True
+- ```all([True,True])``` - True, если все True
+- ```sorted(iterable, key=lambda x: x[1])``` - сортировка по ключу
+
 ```python
 
 
@@ -231,17 +240,6 @@ while running:
 
 pygame.quit()
 ```
-
-# Главные встроенные функции (Вспомнить всё)
-
-- ```map(func, iterable)``` - применить функцию к каждому элементу
-- ```filter(func, itertabgle``` - остав
-- ```filter(func, iterable)``` - оставить только те, где True
-- ```any([True, False])``` - True, если хотя бы один True
-- ```all([True,True])``` - True, если все True
-- ```sorted(iterable, key=lambda x: x[1])``` - сортировка по ключу
-
-
 ---
 
 > P.S. Будет все обновляться. я это просто делаю что бы самому весь этот бред запомнить
