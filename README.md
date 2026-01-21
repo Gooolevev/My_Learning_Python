@@ -18,8 +18,13 @@ print(f"{num:.2f}")                # Округление до 2 знаков: 1
 a, b = b, a
 
 # Оператор морж
-if (n := len(items)) > 10:
-    print(f"Too many items: {n}")
+while (line := input("Enter text: ")) != "stop":
+    print(f"You wrote: {line  }")
+
+line = input("Enter text: ")
+while line != "stop":
+    print(f"You wrote: {line}")
+    line = input("Enter text: ")
 ```
 
 ## Коллекции и One-liners (В одну строку)
