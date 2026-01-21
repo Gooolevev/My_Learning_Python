@@ -4,7 +4,9 @@ I have learning Python just 1.5 month, but I was understand that lose more time 
 
 ## Основы и полезные фишки
 
-```
+```python
+
+
 # Распаковка (Unpacking)
 """тут суть в том, что просто дополнительно присвоить третьей переменной оставшиеся значения, типо * - значит, собери все оставшиеся в этот список"""
 a, b, *rest = [1, 2, 3, 4, 5]  # a=1, b=2, rest=[3, 4, 5]
@@ -32,7 +34,7 @@ while line != "stop":
 
 ## Коллекции и One-liners (В одну строку)
 
-```
+```python
 # List/Dict/Set Comprehensions
 nums = [res for i in range(10) if (res := i) % 2 == 0]       # Список четных
 unique_chars = {char for char in "apple"}          # Множество {'a', 'p', 'l', 'e'}
@@ -52,11 +54,11 @@ status = "Adult" if age >= 18 else "Child"
 
 ## Работа с файлами и JSON
 
-```
+```python
 import json
 ```
 
-```
+```python
 data = {"id": 1, "name": "Admin", "skills": ["Python", "SQL"]}
 
 # Запись в JSON
@@ -73,24 +75,56 @@ with open("notes.txt") as f:
 ```
 
 ## ООП: Классы, @property и @dataclass
+#### Важно
+```python
+# ✅ Правильно
+@dataclass
+class Person:
+    name: str          # ← без default
+    age: int = 0       # ← с default
 
+# ❌ Ошибка: "non-default argument follows default"
+@dataclass
+class BadPerson:
+    name: str = "Anonymous"
+    age: int   # ← нельзя!
 ```
+```python
+@dataclass(frozen=True) # не изменяемые значения в классе
+```
+```python
+@dataclass(slots=True) # крутая темка для ускорения памяти (работать только с большими данными)
+```
+```python
+@dataclass(order=True) # Автоматические <, >, <=, >= (по полям, где compare=True)
+```
+
+```python
 from dataclasses import dataclass, field
 ```
 #### Пример
-```
+```python
 @dataclass
 class User:
     username: str
     user_id: int
     email: str = None
 ```
-#### Слишком крутой пример
-```
-Валидация через __post_init__
+#### Валидация через __post_init__
+```python
+@dataclass
+class Product:
+    name: str
+    price: float
+    in_stock: int
 
-
+    def __post_init__(self):
+        if self.price <= 0:
+            raise ValueError("Price must be > 0")
+        if self.in_stock < 0:
+            raise ValueError("in_stock can't be negative")
 ```
+
 #### Пример с field
 ```python
 @dataclass(order=True)
@@ -106,7 +140,7 @@ emp = Employee("Ivan", 25, "Dev", password="12345", user_id=1, skills=["Good man
 print(emp)
 ```
 #### Пример с field + json
-```
+```python
 from dataclasses import dataclass, field, asdict
 import json
 @dataclass(order=True)
@@ -131,7 +165,7 @@ new_emp = Employee(**loaded_data)
 print(new_emp)
 ```
 #### База
-```
+```python
 class Main:
     def __init__(self, name: str, age: int, job: str):
         self.name = name
@@ -177,7 +211,7 @@ print(user1.__repr__)
 
 ## Pygame 
 
-```
+```python
 import pygame
 
 pygame.init()
